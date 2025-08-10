@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container py-5" style="max-width:720px;">
+  <h2 class="mb-3">Ask anything</h2>
+
+  <div class="card shadow-sm rounded-4">
+    <div class="card-body">
+      <label for="msg" class="form-label">Message</label>
+      <textarea id="msg" class="form-control mb-3" rows="4" placeholder="Type your message..."></textarea>
+
+      <button id="sendBtn" class="btn btn-primary px-4">Send</button>
+      <span id="status" class="text-muted small ms-2"></span>
+
+      <hr class="my-4">
+
+      <label class="form-label">Response</label>
+      <pre id="respBox" class="p-3 bg-light rounded" style="min-height:120px; white-space:pre-wrap;"></pre>
+    </div>
+  </div>
+  <div class="text-muted small mt-2">
+      API: <code>{{ api_url or 'NOT SET' }}</code>
+    </div>
+ 
+</div>
+
+<!-- Load your static JS -->
+<script defer src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
